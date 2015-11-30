@@ -28,4 +28,4 @@ and password are both set to 'dev'.
 ## License ##
 
 *WooCommerce Redirects* is free software, and is released under the terms of the GPL version 2 or (at your option) any
-later version. See license.txt for details.
+later version. See src/license.txt for details.

@@ -1,0 +1,24 @@
+web:
+  build: .
+  ports:
+   - "8080:80"
+  volumes:
+   - ./src:/var/www/html/wp-content/plugins/woocommerce-redirects
+  environment:
+   - WORDPRESS_DB_NAME=wordpress
+   - WORDPRESS_DB_PASSWORD=wordpress
+   - WORDPRESS_DB_USER=wordpress
+   - WORDPRESS_SITE_URL=http://localhost:8080
+   - WP_DEBUG=true
+   - WP_DEBUG_DISPLAY=true
+   - WP_DEBUG_LOG=true
+  links:
+   - mysql
+
+mysql:
+  image: mysql:5.7
+  environment:
+   - MYSQL_USER=wordpress
+   - MYSQL_PASSWORD=wordpress
+   - MYSQL_ROOT_PASSWORD=wordpress
+   - MYSQL_DATABASE=wordpress

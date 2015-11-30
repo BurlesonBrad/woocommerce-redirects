@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once('woocommerce-redirects-wc.php');
+require_once( 'woocommerce-redirects-wc.php' );
 
 //---------------------------------------------------------------------------------------------------------------------
 //
@@ -52,11 +52,8 @@ function wc_redirects__wc_admin_process_product_meta( $post_id ) {
 function wc_redirects__wc_admin_product_data_panels() {
 	global $post;
 
-	$selected_redirection_type = get_post_meta( $post->ID, WC_REDIRECTS__REDIRECTION_TYPE_META_NAME );
-	if ( is_array( $selected_redirection_type ) ) {
-		/** @noinspection PhpUnusedLocalVariableInspection */
-		$selected_redirection_type = $selected_redirection_type[0];
-	}
+	/** @noinspection PhpUnusedLocalVariableInspection */
+	$selected_redirection_type = get_post_meta( $post->ID, WC_REDIRECTS__REDIRECTION_TYPE_META_NAME, true );
 
 	/** @noinspection PhpUnusedLocalVariableInspection */
 	$redirection_types = wc_redirects__get_valid_redirection_types();

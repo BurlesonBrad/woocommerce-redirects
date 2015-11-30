@@ -76,11 +76,7 @@ function wc_redirects__add_to_cart_redirect( $url ) {
 
 	$product_id = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_REQUEST['add-to-cart'] ) );
 
-	$selected_redirection_type = get_post_meta( $product_id, WC_REDIRECTS__REDIRECTION_TYPE_META_NAME );
-	if ( is_array( $selected_redirection_type ) ) {
-		$selected_redirection_type = $selected_redirection_type[0];
-	}
-
+	$selected_redirection_type = get_post_meta( $product_id, WC_REDIRECTS__REDIRECTION_TYPE_META_NAME, true );
 	if ( ! empty( $selected_redirection_type ) ) {
 		foreach ( wc_redirects__get_valid_redirection_types() as $redirection_type ) {
 			if ( $redirection_type['name'] === $selected_redirection_type ) {
